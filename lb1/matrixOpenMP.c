@@ -3,7 +3,7 @@
 #include <omp.h>
 
 int main(){
-  const int n=1000; // This problem scales as n^3. 
+  const int n=10000; // This problem scales as n^3. 
                     // This value may need to be adjusted
 
   double * A = (double*) malloc(sizeof(double)*n*n);
@@ -29,7 +29,7 @@ int main(){
   #pragma omp parallel default(none) shared(n, A, B, C)
   {
   
-    #pragma omp for nowait collapse(3)
+    #pragma omp for nowait collapse(3)                                                    
 
     for ( int i = 0 ; i < n ; i++){
       for ( int j = 0 ; j < n ; j++) {
