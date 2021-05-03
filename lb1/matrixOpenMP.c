@@ -3,14 +3,17 @@
 #include <omp.h>
 
 int main(){
-  const int n=10000; // This problem scales as n^3. 
-                    // This value may need to be adjusted
+  int n;
+  printf("Type in a number \n");
+	scanf("%d", &n);
+  // This problem scales as n^3. 
+  // This value may need to be adjusted
 
   double * A = (double*) malloc(sizeof(double)*n*n);
   double * B = (double*) malloc(sizeof(double)*n*n);
   double * C = (double*) malloc(sizeof(double)*n*n);
   
-  printf("Carrying out matrix-matrix multiplication\n");
+  printf("Carrying out matrix-matrix multiplication use OpenMP\n");
 
   // Cilk Plus array notation
   for (int i = 0 ; i < n; i++) {
